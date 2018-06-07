@@ -6,6 +6,17 @@ $new_discovery_url="https://discovery.etcd.io/new?size=#{$num_instances}"
 
 # Automatically replace the discovery token on 'vagrant up'
 
+if File.exists?('cl.tmpl') && ARGV[0].eql?('up')
+  require 'open-uri'
+  token = open($new_discovery_url).read
+  
+  text = File.read('cl.tmpl')
+  new_text = text.gsub(/%%ETCD_DISCOVERY_URL%%/, token)
+  File.open('cl.conf', "w") {|file| file.puts new_text}
+end
+
+system("ct --platform=vagrant-virtualbox < cl.conf > config.ign")
+
 if File.exists?('user-data') && ARGV[0].eql?('up')
   require 'open-uri'
   require 'yaml'

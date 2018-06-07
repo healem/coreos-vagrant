@@ -1,6 +1,6 @@
 # Disk DescriptorFile
 version=1
-CID=1408d37b
+CID=849de93e
 parentCID=ffffffff
 createType="fullDevice"
 
@@ -15,7 +15,7 @@ ddb.adapterType="ide"
 ddb.geometry.cylinders="2"
 ddb.geometry.heads="16"
 ddb.geometry.sectors="63"
-ddb.uuid.image="c34c359b-1931-4967-b00e-9d797faf5ffd"
+ddb.uuid.image="97aa36fc-408e-4e27-83e5-629a9a265329"
 ddb.uuid.parent="00000000-0000-0000-0000-000000000000"
 ddb.uuid.modification="00000000-0000-0000-0000-000000000000"
 ddb.uuid.parentmodification="00000000-0000-0000-0000-000000000000"

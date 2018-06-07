@@ -168,5 +168,21 @@ Vagrant.configure("2") do |config|
         end
       end
     end
+    
+    #
+    # Install python on coreos, so we can run ansible
+    #
+    config.vm.provision "ansible" do |ansible|
+      ansible.playbook = "../../../os/coreos/templates/coreos-bootstrap.yml"
+      ansible.inventory_path = "../templates/ansible-inventory"
+    end
+    
+    #
+    # Run Ansible playbook to install nginx docker container
+    #
+    config.vm.provision "ansible" do |ansible|
+      ansible.playbook = "../templates/nginx-container.yml"
+      ansible.inventory_path = "../templates/ansible-inventory"
+    end
   end
 end
